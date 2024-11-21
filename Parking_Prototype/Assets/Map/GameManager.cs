@@ -65,14 +65,14 @@ public class GameManager : MonoBehaviour
         else
             isGameOver = true;
 
-        if(Input.GetKey(KeyCode.W)) 
-            player.transform.localPosition += new Vector3(0, 1)*5 *Time.deltaTime;
-        if(Input.GetKey(KeyCode.S)) 
+        /*if (Input.GetKey(KeyCode.W))
+            player.transform.localPosition += new Vector3(0, 1) * 5 * Time.deltaTime;
+        if (Input.GetKey(KeyCode.S))
             player.transform.localPosition += new Vector3(0, -1) * 5 * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
             player.transform.localPosition += new Vector3(-1, 0) * 5 * Time.deltaTime;
         if (Input.GetKey(KeyCode.D))
-            player.transform.localPosition += new Vector3(1, 0) * 5 * Time.deltaTime;
+            player.transform.localPosition += new Vector3(1, 0) * 5 * Time.deltaTime;*/
 
         UpdateDisplay();
         
@@ -221,7 +221,6 @@ public class GameManager : MonoBehaviour
         {
             int i = Random.Range(0, spawnPlayerpoints.Count);
             player.transform.localPosition = spawnPlayerpoints[i].transform.localPosition;
-            Debug.Log(i + "  " + spawnPlayerpoints[i].transform.localPosition.ToString() + "  " + player.transform.localPosition.ToString());
         }        
     }
 
