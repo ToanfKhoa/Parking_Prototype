@@ -14,7 +14,6 @@ public class WinCondition : MonoBehaviour
         {
             GameManager.Instance.NextLevel();
         }
-        Debug.Log("Da vao" + collision.name);
     }
 
     private bool IsPlayerCompletelyInsideSlot()

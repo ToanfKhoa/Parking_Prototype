@@ -178,10 +178,9 @@ public class GameManager : MonoBehaviour
     {
         level++;
         if (countSlot > 1)
-        {
             countSlot--;
-        }
-
+        if(countBlock < 5) 
+            countBlock++;
         RandomMap();
     }
 
@@ -213,11 +212,17 @@ public class GameManager : MonoBehaviour
             parkingSlots[i].SetActive(false);
         }
     }
-   
 
+
+    public List<GameObject> spawnPlayerpoints = new List<GameObject>();
     public void RandomPlayerPosition()
     {
-        player.transform.localPosition = new Vector3(3, -4, 0);
+        if (spawnPlayerpoints.Count > 0)
+        {
+            int i = Random.Range(0, spawnPlayerpoints.Count);
+            player.transform.localPosition = spawnPlayerpoints[i].transform.localPosition;
+            Debug.Log(i + "  " + spawnPlayerpoints[i].transform.localPosition.ToString() + "  " + player.transform.localPosition.ToString());
+        }        
     }
 
     public void Lose()
@@ -303,5 +308,6 @@ public class GameManager : MonoBehaviour
 
         Instantiate(clockPrefab, new Vector3(randomPosition.x, randomPosition.y, 0), Quaternion.identity);
     }
+
 }
 
